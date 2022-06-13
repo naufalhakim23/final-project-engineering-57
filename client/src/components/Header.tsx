@@ -22,6 +22,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import { Link as LinkReactRouterDom } from 'react-router-dom';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,17 +77,17 @@ export default function Header() {
             direction={'row'}
             spacing={6}
           >
-            <Button
-              as={'a'}
-              fontSize={'sm'}
-              fontWeight={400}
-              //   variant={'link'}
-              bg={'none'}
-              href={'#'}
-              color={'#00D563'}
-            >
-              Sign In
-            </Button>
+            <LinkReactRouterDom to="/sign-in">
+              <Button
+                as={'a'}
+                fontSize={'sm'}
+                fontWeight={400}
+                bg={'none'}
+                color={'#00D563'}
+              >
+                Sign In
+              </Button>
+            </LinkReactRouterDom>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
