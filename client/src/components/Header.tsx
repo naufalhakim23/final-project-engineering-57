@@ -88,6 +88,7 @@ export default function Header() {
                 Sign In
               </Button>
             </LinkReactRouterDom>
+            <LinkReactRouterDom to="/sign-up">
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
@@ -100,6 +101,7 @@ export default function Header() {
             >
               Sign Up
             </Button>
+            </LinkReactRouterDom>
           </Stack>
         </Flex>
         <Collapse in={isOpen} animateOpacity>

@@ -74,9 +74,7 @@ export default function LandingPage() {
                 </Text>
               </Heading>
               <Text fontSize={'lg'} textAlign="left" mb={4} ml={2}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                lobortis maximus nunc, ac rhoncus odio congue quis. Sed ac
-                semper orci, eu porttitor lacus.
+                Impianmu menggunakan survey berbasis RIASEC untuk menyesuaikan kamu sesuai dengan hobi dan minat mu.
               </Text>
               <Button
                 mb={5}
