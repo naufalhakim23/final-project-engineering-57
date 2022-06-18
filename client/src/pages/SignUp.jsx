@@ -15,8 +15,7 @@ import {
     Divider,
     Icon
 } from '@chakra-ui/react';
-import { FcGoogle } from 'react-icons/fc';
-import { AiFillFacebook } from 'react-icons/ai';
+
 
 import SimpleFooter from '../components/SimpleFooter.tsx';
 export default function SignUp() {
@@ -82,22 +81,7 @@ export default function SignUp() {
                                 Log in
                             </Button>
 
-                            <Divider />
-                            <Button bg={'white'} variant={'solid'} border={'1px'}
-                                borderColor={'#00D563'}
-
-                            >
-                                <FcGoogle
-                                    size={'1.5em'}
-                                />
-                                Masuk dengan Google
-                            </Button>
-                            <Button bg={'white'} variant={'solid'} border={'1px'}
-                                borderColor={'#00D563'}>
-                                <AiFillFacebook size={'1.5em'}
-                                />
-                                Masuk dengan Facebook
-                            </Button>
+                           
 
                         </Stack>
                     </Stack>
