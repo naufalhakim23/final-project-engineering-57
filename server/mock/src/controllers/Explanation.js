@@ -32,10 +32,14 @@ class ExplanationController {
     const explanation = explanations.find((explanation) => {
       return explanation.id === parseInt(req.params.id);
     });
-    if (explanation) {
-      res.status(200).json(explanation);
-    } else {
-      res.status(404).json({ message: "Explanation not found" });
+    try {
+      if (explanation) {
+        res.status(200).json(explanation);
+      } else {
+        res.status(404).json({ message: "Explanation not found" });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
   }
   //Get all explanations
