@@ -95,10 +95,10 @@ class AuthController {
     if (req.headers.authorization) {
       const token = req.headers.authorization.split(" ")[1];
       try {
-        const decoded = jwt.verify(token, "secret");
+        // const decoded = jwt.verify(token, "secret");
         res.status(200).json({
           message: "User is logged in",
-          decoded,
+          // decoded,
         });
       } catch (error) {
         res.status(401).json({ message: "Invalid token" });
