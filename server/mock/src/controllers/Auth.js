@@ -6,24 +6,30 @@ const authUsers = [
     id: "74bcaf50-aa40-476c-a539-9215fe788fd6",
     email: "test@gmail.com",
     password: bcrypt.hashSync("test", 10),
+    firstName: "John",
+    lastName: "Doe",
+    role: "admin",
   },
   {
     id: "ec3775c7-b312-4528-a656-8b18edc10cce",
     email: "hakimnaufal212@gmail.com",
     password: bcrypt.hashSync("inibuattest", 10),
+    firstName: "Hakim",
+    lastName: "Naufal",
+    role: "user",
   },
 ];
 class AuthController {
-  //Get User test (don't implement this because it's sensitive data)
-  static getUser(req, res) {
-    res.status(200).json({
-      message: "User retrieved successfully",
-      authUsers,
-    });
-  }
+  // //Get User test (don't implement this because it's sensitive data)
+  // static getUser(req, res) {
+  //   res.status(200).json({
+  //     message: "User retrieved successfully",
+  //     authUsers,
+  //   });
+  // }
   //Register User
   static register(req, res) {
-    const { email, password } = req.body;
+    const { email, password, firstName, lastName } = req.body;
     if (email === null) {
       res.status(400).json({
         message: "Email is required",
@@ -32,22 +38,36 @@ class AuthController {
       res.status(400).json({
         message: "Password is required",
       });
-    } else {
-      const authUser = {
-        id: uuid(),
-        email,
-        password: bcrypt.hashSync(password, 10),
-      };
-      authUsers.push(authUser);
-    }
-    try {
-      const token = jwt.sign({ id: authUser.id }, "secret");
-      res.status(201).json({
-        message: "User created successfully",
-        token,
+    } else if (firstName === null) {
+      res.status(400).json({
+        message: "First name is required",
       });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
+    } else if (lastName === null) {
+      res.status(400).json({
+        message: "Last name is required",
+      });
+    } else {
+      const user = authUsers.find((user) => user.email === email);
+      if (user) {
+        res.status(400).json({
+          message: "Email already exists",
+        });
+      } else {
+        const newUser = {
+          id: uuid(),
+          email,
+          password: bcrypt.hashSync(password, 10),
+          role: "user",
+        };
+        authUsers.push(newUser);
+        try {
+          res.status(201).json({
+            message: "User created successfully",
+          });
+        } catch (error) {
+          res.status(500).json({ message: error.message });
+        }
+      }
     }
   }
   //Login User
