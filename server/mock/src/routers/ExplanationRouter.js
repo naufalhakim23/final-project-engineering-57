@@ -8,7 +8,7 @@ Router.get("/", ExplanationController.getAllExplanations);
 //Create new explanation
 Router.post("/addExplanation", ExplanationController.createExplanation);
 //Update explanation by id
-Router.put("/:id", ExplanationController.updateExplanation);
+Router.patch("/:id", ExplanationController.updateExplanation);
 //Delete explanation by id
 Router.delete("/:id", ExplanationController.deleteExplanation);
 
