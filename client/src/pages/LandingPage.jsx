@@ -8,7 +8,6 @@ import {
   Container,
   VStack,
   Center,
-  HStack,
   Image,
   Spacer,
   useMediaQuery
