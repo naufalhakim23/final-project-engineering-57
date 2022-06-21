@@ -66,10 +66,9 @@ export default function Header() {
             >
               Logo
             </Text>
-
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav />
-            </Flex>
+          </Flex>
+          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+            <DesktopNav />
           </Flex>
           <Stack
             flex={{ base: 1, md: 0 }}
@@ -89,18 +88,18 @@ export default function Header() {
               </Button>
             </LinkReactRouterDom>
             <LinkReactRouterDom to="/sign-up">
-            <Button
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
-              fontWeight={600}
-              color={'white'}
-              bg={'#00D563'}
-              _hover={{
-                bg: 'gray.700',
-              }}
-            >
-              Sign Up
-            </Button>
+              <Button
+                display={{ base: 'none', md: 'inline-flex' }}
+                fontSize={'sm'}
+                fontWeight={600}
+                color={'white'}
+                bg={'#00D563'}
+                _hover={{
+                  bg: 'gray.700',
+                }}
+              >
+                Sign Up
+              </Button>
             </LinkReactRouterDom>
           </Stack>
         </Flex>
@@ -122,7 +121,19 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Link
+              <LinkReactRouterDom to={navItem.href ?? '#'}>
+                <Text
+                  fontSize={'sm'}
+                  fontWeight={600}
+                  color={linkColor}
+                  _hover={{
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.label}
+                </Text>
+              </LinkReactRouterDom>
+              {/* <Link
                 p={2}
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
@@ -132,9 +143,13 @@ const DesktopNav = () => {
                   textDecoration: 'none',
                   color: linkHoverColor,
                 }}
+                onClick={e => {
+                  e.preventDefault();
+                  // e.stopPropagation();
+                }}
               >
                 {navItem.label}
-              </Link>
+              </Link> */}
             </PopoverTrigger>
 
             {navItem.children && (
@@ -274,10 +289,10 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'About Us',
-    href: '#',
+    href: '/about-us',
   },
   {
-    label: 'Disclaimer',
-    href: '#',
+    label: 'Meet The Team',
+    href: '/meet-the-team',
   },
 ];
