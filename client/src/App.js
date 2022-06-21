@@ -1,40 +1,31 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+// import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Dashboard from './pages/Dashboard';
+import { Pilihan } from './pages/Pilihan';
+import { Soal } from './pages/Soal';
+import { Tes } from './pages/Tes';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+      {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        {/* Wajib Login */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/soal" element={<Soal />} />
+        <Route path="/soal/:idsoal" element={<Pilihan />} />
+        <Route path="/tes" element={<Tes />} />
+      </Routes>
     </ChakraProvider>
   );
 }
