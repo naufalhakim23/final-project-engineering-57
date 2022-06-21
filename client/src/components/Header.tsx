@@ -78,7 +78,6 @@ export default function Header() {
           >
             <LinkReactRouterDom to="/sign-in">
               <Button
-                as={'a'}
                 fontSize={'sm'}
                 fontWeight={400}
                 bg={'none'}
@@ -293,6 +292,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: 'Meet The Team',
-    href: '/meet-the-team',
+    href: '/about-us/#',
   },
 ];
