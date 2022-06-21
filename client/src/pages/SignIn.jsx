@@ -12,8 +12,6 @@ import {
     Text,
     Center,
     Container,
-    Divider,
-    Icon
 } from '@chakra-ui/react';
 
 
@@ -80,7 +78,7 @@ export default function SignIn() {
                                 Don't have an account?
                                 <Link href='/sign-Up' color={'blue.500'}>Sign up</Link>
                             </Text>
-                           
+
 
                         </Stack>
                     </Stack>
