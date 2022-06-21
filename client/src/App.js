@@ -5,10 +5,11 @@ import { Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Dashboard  from './pages/Dashboard';
+import Dashboard from './pages/Dashboard';
 import { Pilihan } from './pages/Pilihan';
 import { Soal } from './pages/Soal';
 import { Tes } from './pages/Tes';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         {/* Wajib Login */}
@@ -23,7 +25,6 @@ function App() {
         <Route path="/soal" element={<Soal />} />
         <Route path="/soal/:idsoal" element={<Pilihan />} />
         <Route path="/tes" element={<Tes />} />
-
       </Routes>
     </ChakraProvider>
   );
