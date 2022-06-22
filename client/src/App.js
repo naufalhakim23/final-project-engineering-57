@@ -10,6 +10,9 @@ import { Pilihan } from './pages/Pilihan';
 import { Soal } from './pages/Soal';
 import { Tes } from './pages/Tes';
 import AboutUs from './pages/AboutUs';
+import NewDashboard from './pages/Dashboard/Dashboard';
+import DashboardCompleted from './pages/Dashboard/DashboardCompleted';
+import DashboardInProgress from './pages/Dashboard/DashboardInProgress';
 
 function App() {
   return (
@@ -25,6 +28,11 @@ function App() {
         <Route path="/soal" element={<Soal />} />
         <Route path="/soal/:idsoal" element={<Pilihan />} />
         <Route path="/tes" element={<Tes />} />
+        {/*Dashboard menus*/}
+        <Route path="/new-dashboard" element={<NewDashboard />} />
+        <Route path="/home" element={<NewDashboard />} />
+        <Route path="/in-progress" element={<DashboardInProgress />} />
+        <Route path="/completed" element={<DashboardCompleted />} />
       </Routes>
     </ChakraProvider>
   );
