@@ -10,15 +10,14 @@ import {
   Grid,
   useMediaQuery,
 } from '@chakra-ui/react';
-import Header from '../components/Header.tsx';
+import HeaderDashboard from '../components/DashboardComponents/HeaderDashboard.tsx';
 import Footer from '../components/Footer.tsx';
-import DeveloperCard from '../components/DeveloperCard.tsx';
 
 const AboutUs = () => {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   return (
     <>
-      <Header />
+      <HeaderDashboard />
       <Box
         shadow="xl"
         bg="white"
@@ -148,80 +147,7 @@ const AboutUs = () => {
             />
           </Box>
         </SimpleGrid>
-        <SimpleGrid>
-          <Box>
-            <Center>
-              <Heading
-                mb={4}
-                fontSize={{
-                  base: '2xl',
-                  md: '4xl',
-                }}
-                fontWeight="extrabold"
-                letterSpacing="tight"
-                textAlign={{
-                  base: 'center',
-                  md: 'left',
-                }}
-                color="gray.900"
-                _dark={{
-                  color: 'gray.400',
-                }}
-                lineHeight={{
-                  md: 'shorter',
-                }}
-                id="meet-the-team"
-              >
-                Meet The Team
-              </Heading>
-            </Center>
-            {/* <DeveloperCard /> */}
-            {
-              isMobile ? (
-                <Flex
-                  direction="column"
-                  justify="center"
-                  align="center"
-                  mb={10}
-                >
-                  <DeveloperCard
-                    name={'Naufal Al-Hakim'}
-                    role={'Front-End Developer || Managing Director'}
-                    ig={'@kimiskim'}
-                    linkedIn={'https://www.linkedin.com/in/naufal-al-hakim'}
-                    github={'https://github.com/naufalhakim23'}
-                    image={'./assets/developerAvatar/profile-photo-naufal-al-hakim.jpg'}
-                  />
-                  <DeveloperCard
-                    name={'Elang Bimantoro'}
-                    role={'Front-End Developer'}
-                    ig={'@elangbmntr'}
-                    linkedIn={'https://www.linkedin.com/in/elang-bimantoro/'}
-                    github={'https://github.com/'}
-                    image={'./assets/developerAvatar/profile-photo-elang-bimantoro.jpg'}
-                  />
-                </Flex>
-              ) : (<Grid templateColumns={'repeat(3, minmax(200px, 1fr))'} className="meet-the-team">
-                <DeveloperCard
-                  name={'Naufal Al-Hakim'}
-                  role={'Front-End Developer'}
-                  ig={'@kimiskim'}
-                  linkedIn={'https://www.linkedin.com/in/naufal-al-hakim'}
-                  github={'https://github.com/naufalhakim23'}
-                  image={'./assets/developerAvatar/profile-photo-naufal-al-hakim.jpg'}
-                />
-                <DeveloperCard
-                  name={'Elang Bimantoro'}
-                  role={'Front-End Developer'}
-                  ig={'@elangbmntr'}
-                  linkedIn={'https://www.linkedin.com/in/elang-bimantoro/'}
-                  github={'https://github.com/'}
-                  image={'./assets/developerAvatar/profile-photo-elang-bimantoro.jpg'}
-                />
-              </Grid>)
-            }
-          </Box>
-        </SimpleGrid>
+
       </Box>
       <Footer />
     </>
