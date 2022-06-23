@@ -12,11 +12,13 @@ import {
     Text,
     Center,
     Container,
+    Divider,
+    Icon
 } from '@chakra-ui/react';
 
 
 import SimpleFooter from '../components/SimpleFooter.tsx';
-export default function SignIn() {
+export default function SignUp() {
     return (
         <>
             <Stack maxH={'92vh'} direction={{ base: 'column', md: 'row' }}>
@@ -44,15 +46,25 @@ export default function SignIn() {
                             <Container textAlign="center">
                                 <Heading fontSize={'2xl'}
                                     fontWeight={'600'}
-                                >Masuk Akun</Heading>
+                                >Daftar Akun</Heading>
                                 <Text
                                     fontSize={'md'}
                                     fontWeight={'300'}
                                 >
-                                    Masukkan email dan kata sandi Anda untuk masuk dan mulai menggunakan akun Impianmu.
+                                    Isi identitasmu untuk membuat akun Impianmu.
                                 </Text>
                             </Container>
                         </Center>
+                        <Stack isInline>
+                        <FormControl id="NamaAwal">
+                            <FormLabel>Nama Awal</FormLabel>
+                            <Input type="NamaAwal"/>
+                        </FormControl>
+                        <FormControl id="NamaAkhir">
+                            <FormLabel>Nama Akhir</FormLabel>
+                            <Input type="NamaAkhir"/>
+                        </FormControl>
+                        </Stack>
                         <FormControl id="email">
                             <FormLabel>Email</FormLabel>
                             <Input type="email" />
@@ -62,23 +74,14 @@ export default function SignIn() {
                             <Input type="password" />
                         </FormControl>
                         <Stack spacing={5}>
-                            <Stack
-                                direction={{ base: 'column', sm: 'row' }}
-                                align={'start'}
-                                justify={'space-between'}>
-                                <Checkbox>Remember me</Checkbox>
-                                <Link color={'blue.500'}>Forgot password?</Link>
-                            </Stack>
+                            
                             <Button
                                 bg={'#00D563'} color={'white'} variant={'solid'}
                             >
-                                Sign in
+                                Log in
                             </Button>
-                            <Text>
-                                Don't have an account?
-                                <Link href='/sign-Up' color={'blue.500'}>Sign up</Link>
-                            </Text>
 
+                           
 
                         </Stack>
                     </Stack>
