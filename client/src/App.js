@@ -14,6 +14,7 @@ import DashboardInProgress from './pages/Dashboard/DashboardInProgress';
 import MeetTeam from './pages/MeetTeam';
 import TestUser from './pages/TestMenu/TestUser';
 import ResultTest from './pages/TestMenu/ResultTest';
+import AdminDasboard from './pages/dashboard/AdminDashboard';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/test/result" element={<ResultTest />} />
         {/* <Route path="/soal/:idsoal" element={<Pilihan />} /> */}
         {/* <Route path="/tes" element={<Tes />} /> */}
+        <Route path="/dashboard/admin" element={<AdminDasboard />} />
         {/*Dashboard menus*/}
         <Route path="/new-dashboard" element={<NewDashboard />} />
         <Route path="/home" element={<NewDashboard />} />

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import {
   IconButton,
   Avatar,
@@ -14,8 +14,6 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
-  BoxProps,
-  FlexProps,
   Menu,
   MenuButton,
   MenuDivider,
@@ -41,8 +39,6 @@ import {
   FiBell,
   FiChevronDown,
 } from 'react-icons/fi';
-import { IconType } from 'react-icons';
-import { ReactText } from 'react';
 import "./Dashboard.css";
 
 const LinkItems = [
@@ -53,7 +49,7 @@ const LinkItems = [
   { name: 'Settings', icon: FiSettings },
 ];
 
-export default function Dasboard({ children }) {
+export default function AdminDasboard({ children }) {
   const data = [
     { toConvert: 'I like to work on cars', RIASEC: 'R', multiplyBy: "Edit" },
     { toConvert: 'I like to do puzzles', RIASEC: 'I', multiplyBy: "Edit" },
