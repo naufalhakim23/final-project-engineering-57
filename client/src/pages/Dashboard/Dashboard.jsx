@@ -91,14 +91,15 @@ const NewDashboard = () => {
                     >
                         Anda belum melakukan test RIASEC
                     </Text>
-                    <Button
-
-                        bg={'black'}
-                        size={'lg'}
-                        color={'white'}
-                    >
-                        Test RIASEC
-                    </Button>
+                    <Link to={'/test'}>
+                        <Button
+                            bg={'black'}
+                            size={'lg'}
+                            color={'white'}
+                        >
+                            Test RIASEC
+                        </Button>
+                    </Link>
                 </Box>
                 <Box
                     marginLeft={'2rem'}
