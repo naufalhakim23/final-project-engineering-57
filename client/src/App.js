@@ -13,6 +13,7 @@ import AboutUs from './pages/AboutUs';
 import NewDashboard from './pages/Dashboard/Dashboard';
 import DashboardCompleted from './pages/Dashboard/DashboardCompleted';
 import DashboardInProgress from './pages/Dashboard/DashboardInProgress';
+import MeetTeam from './pages/MeetTeam';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/meet-the-team" element={<MeetTeam />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         {/* Wajib Login */}
