@@ -148,38 +148,44 @@ const HeaderDashboard = ({ fullName }) => {
                     md: 'inline-flex',
                   }}
                 >
-                  <Button variant="ghost" fontWeight={500}>
-                    <Link to={'/about-us'}>About Us</Link>
-                  </Button>
-                  <Button variant="ghost" fontWeight={500}>
-                    <Link to={'/meet-the-team'}>Meet the Team</Link>
-                  </Button>
+                  <Link to={'/about-us'}>
+                    <Button variant="ghost" fontWeight={500}>
+                      About Us
+                    </Button>
+                  </Link>
+                  <Link to={'/meet-the-team'}>
+                    <Button variant="ghost" fontWeight={500}>
+                      Meet the Team
+                    </Button>
+                  </Link>
                 </HStack>
-                <Button
-                  fontSize={'sm'}
-                  fontWeight={400}
-                  bg={'none'}
-                  color={'#00D563'}
-                  onClick={() => setIsSignedIn(true)}
-                >
-                  <Link to={'/sign-in'}>
+                <Link to={'/sign-in'}>
+                  <Button
+                    fontSize={'sm'}
+                    fontWeight={400}
+                    bg={'none'}
+                    color={'#00D563'}
+                    onClick={() => setIsSignedIn(true)}
+                  >
                     <Text fontSize="sm" fontWeight="500">
                       Sign In
                     </Text>
-                  </Link>
-                </Button>
-                <Button
-                  display={{ base: 'none', md: 'inline-flex' }}
-                  fontSize={'sm'}
-                  fontWeight={600}
-                  color={'white'}
-                  bg={'#00D563'}
-                  _hover={{
-                    bg: 'gray.700',
-                  }}
-                >
-                  <Link to={'/sign-up'}>Sign Up</Link>
-                </Button>
+                  </Button>
+                </Link>
+                <Link to={'/sign-up'}>
+                  <Button
+                    display={{ base: 'none', md: 'inline-flex' }}
+                    fontSize={'sm'}
+                    fontWeight={600}
+                    color={'white'}
+                    bg={'#00D563'}
+                    _hover={{
+                      bg: 'gray.700',
+                    }}
+                  >
+                    Sign Up
+                  </Button>
+                </Link>
               </>
             )}
 
