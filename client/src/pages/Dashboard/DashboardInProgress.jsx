@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from '../../components/Header.tsx';
 import Footer from '../../components/Footer.tsx';
 import { Box, Flex, HStack, Text } from '@chakra-ui/react';
 import DashboardCard from '../../components/DashboardComponents/DashboardCard.tsx';
 import { Link, } from 'react-router-dom';
 import CardColumn from '../../components/DashboardComponents/CardColumn.tsx';
+import HeaderDashboard from '../../components/DashboardComponents/HeaderDashboard.tsx';
 
 const DashboardInProgress = () => {
     return (
         <>
-            <Header />
+            <HeaderDashboard />
             <Box
                 backgroundColor={'#00D56373'}
                 width={'100%'}

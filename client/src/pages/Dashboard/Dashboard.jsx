@@ -1,14 +1,14 @@
 import React from 'react';
-import Header from '../../components/Header.tsx';
 import Footer from '../../components/Footer.tsx';
 import { Box, Button, Flex, HStack, Text } from '@chakra-ui/react';
 import DashboardCard from '../../components/DashboardComponents/DashboardCard.tsx';
 import { Link, } from 'react-router-dom';
+import HeaderDashboard from '../../components/DashboardComponents/HeaderDashboard.tsx';
 
 const NewDashboard = () => {
     return (
         <>
-            <Header />
+            <HeaderDashboard />
             <Box
                 backgroundColor={'#00D56373'}
                 width={'100%'}

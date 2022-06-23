@@ -12,15 +12,15 @@ import {
   Spacer,
   useMediaQuery
 } from '@chakra-ui/react';
-import Header from '../components/Header.tsx';
 import LandingPageCard from '../components/LandingPageCard.tsx';
 import Footer from '../components/Footer.tsx';
+import HeaderDashboard from '../components/DashboardComponents/HeaderDashboard.tsx';
 
 export default function LandingPage() {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   return (
     <>
-      <Header />
+      <HeaderDashboard />
       <Flex
         w={'full'}
         h={'150vh'}
