@@ -1,20 +1,17 @@
 import {
     Button,
-    Checkbox,
     Flex,
     FormControl,
     FormLabel,
     Heading,
     Input,
-    Link,
     Stack,
     Image,
     Text,
     Center,
     Container,
-    Divider,
-    Icon
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 
 import SimpleFooter from '../components/SimpleFooter.tsx';
@@ -56,14 +53,14 @@ export default function SignUp() {
                             </Container>
                         </Center>
                         <Stack isInline>
-                        <FormControl id="NamaAwal">
-                            <FormLabel>Nama Awal</FormLabel>
-                            <Input type="NamaAwal"/>
-                        </FormControl>
-                        <FormControl id="NamaAkhir">
-                            <FormLabel>Nama Akhir</FormLabel>
-                            <Input type="NamaAkhir"/>
-                        </FormControl>
+                            <FormControl id="NamaAwal">
+                                <FormLabel>Nama Awal</FormLabel>
+                                <Input type="NamaAwal" />
+                            </FormControl>
+                            <FormControl id="NamaAkhir">
+                                <FormLabel>Nama Akhir</FormLabel>
+                                <Input type="NamaAkhir" />
+                            </FormControl>
                         </Stack>
                         <FormControl id="email">
                             <FormLabel>Email</FormLabel>
@@ -74,15 +71,14 @@ export default function SignUp() {
                             <Input type="password" />
                         </FormControl>
                         <Stack spacing={5}>
-                            
                             <Button
                                 bg={'#00D563'} color={'white'} variant={'solid'}
                             >
-                                Log in
+                                Sign Up
                             </Button>
-
-                           
-
+                            <Text color={'blue.500'}>
+                                <Link to={'/sign-in'}>Sudah Punya akun? Log-In</Link>
+                            </Text>
                         </Stack>
                     </Stack>
                 </Flex>
