@@ -44,7 +44,7 @@ import { ReactText } from 'react';
 
 const LinkItems = [
   { name: 'Home', icon: FiHome },
-  { name: 'In Progress', icon: FiLoader },
+  { name: 'In Progress', icon: FiLoader, },
   { name: 'Completed', icon: FiCheck },
 ];
 
