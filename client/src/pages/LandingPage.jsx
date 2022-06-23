@@ -15,6 +15,7 @@ import {
 import LandingPageCard from '../components/LandingPageCard.tsx';
 import Footer from '../components/Footer.tsx';
 import HeaderDashboard from '../components/DashboardComponents/HeaderDashboard.tsx';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
@@ -47,7 +48,7 @@ export default function LandingPage() {
               <Heading
                 lineHeight={1.1}
                 fontWeight={500}
-                fontSize={{ base: '1xl', sm: '2xl', lg: '4xl' }}
+                fontSize={{ base: '2xl', sm: '2xl', lg: '4xl' }}
                 color="black"
                 mb={4}
                 mt={4}
@@ -75,20 +76,24 @@ export default function LandingPage() {
                   dengan Impianmu!
                 </Text>
               </Heading>
-              <Text fontSize={'lg'} textAlign="left" mb={4} ml={2}>
+              <Text fontSize={{ base: 'lg', sm: 'lg', lg: 'xl' }} textAlign="left" mb={4} ml={2}>
                 Impianmu menggunakan survey berbasis RIASEC untuk menyesuaikan
                 kamu sesuai dengan hobi dan minat mu.
               </Text>
-              <Button
-                mb={5}
-                backgroundColor="#00D563"
-                width="250px"
-                borderRadius="15px"
-              >
-                <Text fontSize={'lg'} color="white">
-                  Get Started
-                </Text>
-              </Button>
+              <Center>
+                <Link to={'/sign-up'}>
+                  <Button
+                    mb={5}
+                    backgroundColor="#00D563"
+                    width="250px"
+                    borderRadius="15px"
+                  >
+                    <Text fontSize={'lg'} color="white">
+                      Get Started
+                    </Text>
+                  </Button>
+                </Link>
+              </Center>
             </Box>
           </Stack>
         </Container>
