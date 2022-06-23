@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import {
   IconButton,
   Avatar,
@@ -17,8 +17,6 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
-  BoxProps,
-  FlexProps,
   Menu,
   MenuButton,
   MenuDivider,
@@ -72,42 +70,42 @@ export default function Dasboard({
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
-      
-      
+
+
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
         <DashboardHero />
 
         <Container maxW={'7xl'} mb={10}>
-        <Text>
-          <Heading fontWeight={600} textAlign="center" >
-           Menu
-          </Heading>
-        </Text>
-        <Center>
-          <LandingPageCard
-            titleFeature={'Pencarian Minat dan Bakat Impianmu'}
-            imageFeature={
-              'https://images.unsplash.com/photo-1655201820196-bded3e9bd271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-            }
-          />
-          <LandingPageCard
-            titleFeature={'Pencarian Beasiswa'}
-            imageFeature={
-              'https://images.unsplash.com/photo-1655070748916-75871ab03c87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'
-            }
-          />
-          <LandingPageCard
-            titleFeature={'Prediksi Jurusan'}
-            imageFeature={
-              'https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-            }
-          />
-        </Center>
-      </Container>
+          <Text>
+            <Heading fontWeight={600} textAlign="center" >
+              Menu
+            </Heading>
+          </Text>
+          <Center>
+            <LandingPageCard
+              titleFeature={'Pencarian Minat dan Bakat Impianmu'}
+              imageFeature={
+                'https://images.unsplash.com/photo-1655201820196-bded3e9bd271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+              }
+            />
+            <LandingPageCard
+              titleFeature={'Pencarian Beasiswa'}
+              imageFeature={
+                'https://images.unsplash.com/photo-1655070748916-75871ab03c87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'
+              }
+            />
+            <LandingPageCard
+              titleFeature={'Prediksi Jurusan'}
+              imageFeature={
+                'https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+              }
+            />
+          </Center>
+        </Container>
       </Box>
-      
+
     </Box>
   );
 }
@@ -125,7 +123,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Avatar
-        bg={useColorModeValue('White', 'gray.900')}
+          bg={useColorModeValue('White', 'gray.900')}
           size="md"
           src="../../assets/images/impianmu.png"
           mr="3"
@@ -143,7 +141,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 
 const NavItem = ({ icon, children, ...rest }) => {
   return (
-    
+
     <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
@@ -157,7 +155,7 @@ const NavItem = ({ icon, children, ...rest }) => {
           color: 'white',
         }}
         {...rest}>
-          
+
         {icon && (
           <Icon
             mr="4"
@@ -187,12 +185,12 @@ const MobileNav = ({ onOpen, ...rest }) => {
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       {...rest}>
-     <Text align='left' 
-         fontSize='20px'
-         fontWeight='600px'>
-            Selamat datang kembali!
-        </Text>
-      
+      <Text align='left'
+        fontSize='20px'
+        fontWeight='600px'>
+        Selamat datang kembali!
+      </Text>
+
       <IconButton
         display={{ base: 'flex', md: 'none' }}
         onClick={onOpen}
@@ -209,7 +207,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
         /> */}
 
       <HStack spacing={{ base: '0', md: '6' }}>
-      
+
         <IconButton
           size="lg"
           variant="ghost"
@@ -217,7 +215,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
           icon={<FiBell />}
         />
         <Flex alignItems={'center'}>
-      
+
           <Menu>
             <MenuButton
               py={2}

@@ -5,12 +5,12 @@ import { Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import DashboardU  from './pages/DashboardU';
+import DashboardU from './pages/DashboardU';
 import { Pilihan } from './pages/Pilihan';
 import { Soal } from './pages/Soal';
 import { Tes } from './pages/Tes';
-import Progress from './pages/Progress'
-import Completed from './pages/Completed'
+import Progress from './pages/Progress';
+import Completed from './pages/Completed';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
       {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         {/* Wajib Login */}
@@ -27,7 +28,6 @@ function App() {
         <Route path="/tes" element={<Tes />} />
         <Route path="/Progress" element={<Progress />} />
         <Route path="/Completed" element={<Completed />} />
-
       </Routes>
     </ChakraProvider>
   );
