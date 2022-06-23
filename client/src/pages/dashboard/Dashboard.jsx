@@ -62,7 +62,7 @@ export default function Dasboard({ children }) {
     { toConvert: 'I am an ambitious person, I set goals for myself', RIASEC: 'E', multiplyBy: "Edit" },
     { toConvert: 'I like to organize things, (files, desks/offices)', RIASEC: 'C', multiplyBy: "Edit" },
   ];
-  
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -91,7 +91,7 @@ export default function Dasboard({ children }) {
           <Table variant="striped" colorScheme="teal">
             {/* <TableCaption>Tabel Soal RIASEC</TableCaption> */}
             <Thead>
-            <TableCaption className='caption'>Tabel Soal RIASEC</TableCaption>
+              <TableCaption className='caption'>Tabel Soal RIASEC</TableCaption>
               <Tr>
                 <Th>Soal</Th>
                 <Th>RIASEC</Th>
@@ -100,11 +100,11 @@ export default function Dasboard({ children }) {
             </Thead>
             <Tbody>
               {data.map(({ toConvert, RIASEC, multiplyBy }) => (
-              <Tr>
-                <Td>{toConvert}</Td>
-                <Td>{RIASEC}</Td>
-                <Td isNumeric>{multiplyBy}</Td>
-              </Tr>
+                <Tr>
+                  <Td>{toConvert}</Td>
+                  <Td>{RIASEC}</Td>
+                  <Td isNumeric>{multiplyBy}</Td>
+                </Tr>
               ))}
             </Tbody>
             <Tfoot>

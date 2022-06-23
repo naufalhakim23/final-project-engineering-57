@@ -6,15 +6,13 @@ import {
     FormLabel,
     Heading,
     Input,
-    Link,
     Stack,
     Image,
     Text,
     Center,
     Container,
-    Divider,
-    Icon
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 
 import SimpleFooter from '../components/SimpleFooter.tsx';
@@ -69,7 +67,6 @@ export default function SignIn() {
                                 align={'start'}
                                 justify={'space-between'}>
                                 <Checkbox>Remember me</Checkbox>
-                                <Link color={'blue.500'}>Forgot password?</Link>
                             </Stack>
                             <Button
                                 bg={'#00D563'} color={'white'} variant={'solid'}
@@ -78,9 +75,11 @@ export default function SignIn() {
                             </Button>
                             <Text>
                                 Don't have an account?
-                                <Link href='/sign-Up' color={'blue.500'}>Sign up</Link>
+                                <Link to='/sign-Up'>
+                                    Sign up
+                                </Link>
                             </Text>
-                           
+
 
                         </Stack>
                     </Stack>
