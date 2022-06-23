@@ -88,6 +88,7 @@ export default function Header() {
                 Sign In
               </Button>
             </LinkReactRouterDom>
+            <LinkReactRouterDom to="/sign-up">
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
@@ -100,6 +101,7 @@ export default function Header() {
             >
               Sign Up
             </Button>
+            </LinkReactRouterDom>
           </Stack>
         </Flex>
         <Collapse in={isOpen} animateOpacity>
@@ -271,41 +273,11 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
-    children: [
-      {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Find Work',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Learn Design',
+    label: 'About Us',
     href: '#',
   },
   {
-    label: 'Hire Designers',
+    label: 'Disclaimer',
     href: '#',
   },
 ];

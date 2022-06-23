@@ -21,6 +21,15 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
 } from '@chakra-ui/react';
 import {
   FiHome,
@@ -34,19 +43,26 @@ import {
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
+import "./Dashboard.css";
 
 const LinkItems = [
   { name: 'Home', icon: FiHome },
-  { name: 'Trending', icon: FiTrendingUp },
+  { name: 'Report', icon: FiTrendingUp },
   { name: 'Explore', icon: FiCompass },
-  { name: 'Favourites', icon: FiStar },
+  { name: 'Profile', icon: FiStar },
   { name: 'Settings', icon: FiSettings },
 ];
 
-export default function Dasboard({
-  children,
-}
-) {
+export default function Dasboard({ children }) {
+  const data = [
+    { toConvert: 'I like to work on cars', RIASEC: 'R', multiplyBy: "Edit" },
+    { toConvert: 'I like to do puzzles', RIASEC: 'I', multiplyBy: "Edit" },
+    { toConvert: 'I am good at workingindependently', RIASEC: 'A', multiplyBy: "Edit" },
+    { toConvert: 'I like to work in teams', RIASEC: 'S', multiplyBy: "Edit" },
+    { toConvert: 'I am an ambitious person, I set goals for myself', RIASEC: 'E', multiplyBy: "Edit" },
+    { toConvert: 'I like to organize things, (files, desks/offices)', RIASEC: 'C', multiplyBy: "Edit" },
+  ];
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -61,7 +77,8 @@ export default function Dasboard({
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full">
+        size="full"
+      >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
         </DrawerContent>
@@ -70,12 +87,39 @@ export default function Dasboard({
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
+        <TableContainer>
+          <Table variant="striped" colorScheme="teal">
+            {/* <TableCaption>Tabel Soal RIASEC</TableCaption> */}
+            <Thead>
+            <TableCaption className='caption'>Tabel Soal RIASEC</TableCaption>
+              <Tr>
+                <Th>Soal</Th>
+                <Th>RIASEC</Th>
+                <Td isNumeric>Edit</Td>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {data.map(({ toConvert, RIASEC, multiplyBy }) => (
+              <Tr>
+                <Td>{toConvert}</Td>
+                <Td>{RIASEC}</Td>
+                <Td isNumeric>{multiplyBy}</Td>
+              </Tr>
+              ))}
+            </Tbody>
+            <Tfoot>
+              {/* <Tr>
+                <Th>To convert</Th>
+                <Th>RIASEC</Th>
+                <Th isNumeric>multiply by</Th>
+              </Tr> */}
+            </Tfoot>
+          </Table>
+        </TableContainer>
       </Box>
     </Box>
   );
 }
-
-
 
 const SidebarContent = ({ onClose, ...rest }) => {
   return (
@@ -87,14 +131,13 @@ const SidebarContent = ({ onClose, ...rest }) => {
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
-      {...rest}>
+      {...rest}
+    >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        <img src="./assets/images/logo.jpeg" alt="" className='Img' />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
+      {LinkItems.map(link => (
         <NavItem key={link.name} icon={link.icon}>
           {link.name}
         </NavItem>
@@ -105,7 +148,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
 
 const NavItem = ({ icon, children, ...rest }) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link
+      href="#"
+      style={{ textDecoration: 'none' }}
+      _focus={{ boxShadow: 'none' }}
+    >
       <Flex
         align="center"
         p="4"
@@ -114,10 +161,11 @@ const NavItem = ({ icon, children, ...rest }) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: 'cyan.400',
+          bg: 'green.300',
           color: 'white',
         }}
-        {...rest}>
+        {...rest}
+      >
         {icon && (
           <Icon
             mr="4"
@@ -134,7 +182,6 @@ const NavItem = ({ icon, children, ...rest }) => {
   );
 };
 
-
 const MobileNav = ({ onOpen, ...rest }) => {
   return (
     <Flex
@@ -146,7 +193,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
-      {...rest}>
+      {...rest}
+    >
       <IconButton
         display={{ base: 'flex', md: 'none' }}
         onClick={onOpen}
@@ -159,7 +207,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
         display={{ base: 'flex', md: 'none' }}
         fontSize="2xl"
         fontFamily="monospace"
-        fontWeight="bold">
+        fontWeight="bold"
+      >
         Logo
       </Text>
 
@@ -175,7 +224,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
             <MenuButton
               py={2}
               transition="all 0.3s"
-              _focus={{ boxShadow: 'none' }}>
+              _focus={{ boxShadow: 'none' }}
+            >
               <HStack>
                 <Avatar
                   size={'sm'}
@@ -187,7 +237,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   display={{ base: 'none', md: 'flex' }}
                   alignItems="flex-start"
                   spacing="1px"
-                  ml="2">
+                  ml="2"
+                >
                   <Text fontSize="sm">Justina Clark</Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
@@ -200,7 +251,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
             </MenuButton>
             <MenuList
               bg={useColorModeValue('white', 'gray.900')}
-              borderColor={useColorModeValue('gray.200', 'gray.700')}>
+              borderColor={useColorModeValue('gray.200', 'gray.700')}
+            >
               <MenuItem>Profile</MenuItem>
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
