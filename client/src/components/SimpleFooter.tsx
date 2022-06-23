@@ -3,9 +3,9 @@ import {
   Container,
   Stack,
   Text,
-  Link,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 export default function SimpleFooter() {
   return (
@@ -20,10 +20,9 @@ export default function SimpleFooter() {
         align={{ base: 'center', md: 'center' }}
       >
         <Stack direction={'row'} spacing={6}>
-          <Link href={'#'}>Home</Link>
-          <Link href={'#'}>About</Link>
-          <Link href={'#'}>Blog</Link>
-          <Link href={'#'}>Contact</Link>
+          <Link to={'/'}>Home</Link>
+          <Link to={'/about-us'}>About Us</Link>
+          <Link to={'/meet-the-team'}>Meet The Team</Link>
         </Stack>
         <Text>© 2022 Impianmu. All rights reserved</Text>
       </Container>
