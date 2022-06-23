@@ -95,9 +95,9 @@ export default function LandingPage() {
                 </Link>
               </Center>
             </Box>
-          </Stack>
-        </Container>
-      </Flex>
+          </Stack >
+        </Container >
+      </Flex >
       <Container maxW={'5xl'} mb={10} className="feature-section" >
         <Center
           margin={isMobile ? '2' : '0 auto'}
@@ -314,6 +314,33 @@ export default function LandingPage() {
               </Stack>
             </Container>
           )}
+        </Center>
+      </Container>
+      <Container maxW={'7xl'} mb={10}>
+        <Text>
+          <Heading fontWeight={600} textAlign="center" margin={'10'}>
+            Our Features
+          </Heading>
+        </Text>
+        <Center>
+          <LandingPageCard
+            titleFeature={'Pencarian Minat dan Bakat Impianmu'}
+            imageFeature={
+              'https://images.unsplash.com/photo-1655201820196-bded3e9bd271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+            }
+          />
+          <LandingPageCard
+            titleFeature={'Pencarian Beasiswa'}
+            imageFeature={
+              'https://images.unsplash.com/photo-1655070748916-75871ab03c87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'
+            }
+          />
+          <LandingPageCard
+            titleFeature={'Prediksi Jurusan'}
+            imageFeature={
+              'https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+            }
+          />
         </Center>
       </Container>
 
