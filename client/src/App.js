@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Dashboard from './pages/Dashboard';
+import DashboardU from './pages/DashboardU';
 import { Pilihan } from './pages/Pilihan';
 import { Soal } from './pages/Soal';
 import { Tes } from './pages/Tes';
@@ -14,6 +14,8 @@ import NewDashboard from './pages/Dashboard/Dashboard';
 import DashboardCompleted from './pages/Dashboard/DashboardCompleted';
 import DashboardInProgress from './pages/Dashboard/DashboardInProgress';
 import MeetTeam from './pages/MeetTeam';
+import Progress from './pages/Progress';
+import Completed from './pages/Completed';
 
 function App() {
   return (
@@ -26,7 +28,7 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         {/* Wajib Login */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<DashboardU />} />
         <Route path="/soal" element={<Soal />} />
         <Route path="/soal/:idsoal" element={<Pilihan />} />
         <Route path="/tes" element={<Tes />} />
@@ -35,6 +37,8 @@ function App() {
         <Route path="/home" element={<NewDashboard />} />
         <Route path="/in-progress" element={<DashboardInProgress />} />
         <Route path="/completed" element={<DashboardCompleted />} />
+        <Route path="/Progress" element={<Progress />} />
+        <Route path="/Completed" element={<Completed />} />
       </Routes>
     </ChakraProvider>
   );

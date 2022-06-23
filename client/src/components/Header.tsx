@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Avatar,
   Box,
   Flex,
   Text,
@@ -9,6 +10,7 @@ import {
   Collapse,
   Icon,
   Link,
+  Image,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -59,16 +61,15 @@ export default function Header() {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}
-            >
-              Logo
-            </Text>
-          </Flex>
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-            <DesktopNav />
+            <Avatar
+              bg={useColorModeValue('White', 'gray.900')}
+              size="sm"
+              src="../../assets/images/impianmu.png"
+              mr="3"
+            />
+            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+              <DesktopNav />
+            </Flex>
           </Flex>
           <Stack
             flex={{ base: 1, md: 0 }}
