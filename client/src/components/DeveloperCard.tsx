@@ -7,8 +7,6 @@ import {
   Text,
   Stack,
   Button,
-  Link,
-  Badge,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';

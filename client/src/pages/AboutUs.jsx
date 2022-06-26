@@ -5,16 +5,13 @@ import {
   Text,
   Heading,
   Image,
-  Center,
-  Flex,
-  Grid,
-  useMediaQuery,
+  // useMediaQuery,
 } from '@chakra-ui/react';
 import HeaderDashboard from '../components/DashboardComponents/HeaderDashboard.tsx';
 import Footer from '../components/Footer.tsx';
 
 const AboutUs = () => {
-  const [isMobile] = useMediaQuery('(max-width: 768px)');
+  // const [isMobile] = useMediaQuery('(max-width: 768px)');
   return (
     <>
       <HeaderDashboard />
