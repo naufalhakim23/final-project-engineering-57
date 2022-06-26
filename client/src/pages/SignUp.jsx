@@ -10,12 +10,57 @@ import {
     Text,
     Center,
     Container,
+    Modal,
+    ModalOverlay,
+    ModalCloseButton,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 
 
 import SimpleFooter from '../components/SimpleFooter.tsx';
 export default function SignUp() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [registered, setRegistered] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const addUser = async () => {
+        try {
+            const response = await axios({
+                method: 'POST',
+                url: 'http://localhost:3001/api/auth/register/',
+                data: {
+                    email: email,
+                    password: password,
+                    first_name: firstName,
+                    last_name: lastName
+                },
+            })
+            setRegistered(true);
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const loadingTimer = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addUser();
+        loadingTimer();
+    }
     return (
         <>
             <Stack maxH={'92vh'} direction={{ base: 'column', md: 'row' }}>
@@ -52,36 +97,105 @@ export default function SignUp() {
                                 </Text>
                             </Container>
                         </Center>
-                        <Stack isInline>
-                            <FormControl id="NamaAwal">
-                                <FormLabel>Nama Awal</FormLabel>
-                                <Input type="NamaAwal" />
+                        <form onSubmit={handleSubmit}>
+                            <Stack isInline>
+                                <FormControl id="NamaAwal" isRequired>
+                                    <FormLabel>Nama Awal</FormLabel>
+                                    <Input type="NamaAwal"
+                                        placeholder="Nama Awal"
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+
+                                    />
+                                </FormControl>
+                                <FormControl id="NamaAkhir" isRequired>
+                                    <FormLabel>Nama Akhir</FormLabel>
+                                    <Input type="NamaAkhir"
+                                        placeholder="Nama Akhir"
+                                        value={lastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                    />
+                                </FormControl>
+                            </Stack>
+                            <FormControl id="email" isRequired>
+                                <FormLabel>Email</FormLabel>
+                                <Input type="email"
+                                    placeholder="Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
                             </FormControl>
-                            <FormControl id="NamaAkhir">
-                                <FormLabel>Nama Akhir</FormLabel>
-                                <Input type="NamaAkhir" />
+                            <FormControl id="password" isRequired>
+                                <FormLabel>Password</FormLabel>
+                                <Input type="password"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
                             </FormControl>
-                        </Stack>
-                        <FormControl id="email">
-                            <FormLabel>Email</FormLabel>
-                            <Input type="email" />
-                        </FormControl>
-                        <FormControl id="password">
-                            <FormLabel>Password</FormLabel>
-                            <Input type="password" />
-                        </FormControl>
-                        <Stack spacing={5}>
-                            <Button
-                                bg={'#00D563'} color={'white'} variant={'solid'}
-                            >
-                                Sign Up
-                            </Button>
-                            <Text color={'blue.500'}>
-                                <Link to={'/sign-in'}>Sudah Punya akun? Log-In</Link>
-                            </Text>
-                        </Stack>
+                            <Stack spacing={5}>
+                                <Button
+                                    bg={'#00D563'} color={'white'} variant={'solid'}
+                                    type="submit"
+                                >
+                                    Sign Up
+                                </Button>
+                                <Text color={'blue.500'}>
+                                    Sudah Punya akun?
+                                    <Link to={'/sign-in'}>
+                                        Log-In
+                                    </Link>
+                                </Text>
+                            </Stack>
+                        </form>
                     </Stack>
                 </Flex>
+                {
+                    registered ? (
+                        <Modal isOpen={true}>
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader>
+                                    Selamat!
+                                </ModalHeader>
+                                <ModalBody>
+                                    <Flex justify={'center'}
+                                        align={'center'}
+                                        direction={'column'}
+                                    >
+                                        <Text fontSize={'lg'}
+                                            mb={3}
+                                        >
+                                            Akun anda telah terdaftar.
+                                        </Text>
+                                        {
+                                            loading ? (
+                                                <Button
+                                                    bg={'#00D563'} color={'white'} variant={'solid'}
+                                                    isLoading
+                                                    loadingText='Loading'
+                                                >
+                                                    Log In
+                                                </Button>
+                                            ) : (
+                                                <Link to={'/sign-in'}>
+                                                    <Button
+                                                        bg={'#00D563'} color={'white'} variant={'solid'}
+                                                    >
+                                                        Log In
+                                                    </Button>
+                                                </Link>
+                                            )
+                                        }
+                                    </Flex>
+                                </ModalBody>
+                            </ModalContent>
+
+                        </Modal>
+                    ) : (
+                        <></>
+                    )
+                }
             </Stack>
             <SimpleFooter />
         </>
