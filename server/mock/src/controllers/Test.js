@@ -1,24 +1,18 @@
-const question = [
-  {
-    id: 1,
-    question: "I like to work on Cars",
-    answerFor: "R",
-  },
-  {
-    id: 2,
-    question: "I like to work do Puzzles",
-    answerFor: "I",
-  },
-  {
-    id: 3,
-    question: "I am good at working independently",
-    answerFor: "A",
-  },
-];
+const db = require("../db/db");
+
 class TestController {
   //Get All Test
   static getAllTest(req, res) {
-    res.status(200).json(question);
+    db.query("SELECT * FROM question", (err, results) => {
+      if (err) {
+        res.status(500).json({
+          message: "Error getting all test",
+          error: err,
+        });
+      } else {
+        res.status(200).json(results);
+      }
+    });
   }
   //Get Test Question by id
   static getTest(req, res) {
