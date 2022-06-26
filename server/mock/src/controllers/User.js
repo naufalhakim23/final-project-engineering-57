@@ -3,16 +3,19 @@ const db = require("../db/db");
 class UserController {
   // Get User data user/:id
   static getUser(req, res) {
-    const { id } = req.params;
-    db.query(`SELECT * FROM users WHERE id = '${id}'`, (err, result) => {
-      if (err) {
-        res.status(500).json({
-          message: "Internal Server Error",
-        });
-      } else {
-        res.status(200).json(result.rows[0]);
+    db.query(
+      `SELECT * FROM userdb WHERE id = '${req.params.id}'`,
+      (err, result) => {
+        if (err) {
+          res.status(500).json({
+            message: "Error getting user",
+            error: err,
+          });
+        } else {
+          res.status(200).json(result);
+        }
       }
-    });
+    );
     // const { id } = req.params;
     // const user = users.find((user) => user.id === id);
     // if (!user) {
@@ -25,27 +28,47 @@ class UserController {
   }
   //Update User data user/:id
   static updateUser(req, res) {
-    const { id } = req.params;
-    const { firstName, lastName, email } = req.body;
-    const user = users.find((user) => user.id === id);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    } else if (firstName === null) {
-      return res.status(400).json({ message: "First name is required" });
-    } else if (lastName === null) {
-      return res.status(400).json({ message: "Last name is required" });
-    } else if (email === null) {
-      return res.status(400).json({ message: "Email is required" });
-    }
+    db.query(
+      `UPDATE userdb SET first_name = '${req.body.first_name}', email = '${
+        req.body.email
+      }', password = '${
+        req.body.password
+      }', update_at='${new Date()}' WHERE id = '${req.params.id}'`,
 
-    user.firstName = firstName;
-    user.lastName = lastName;
-    user.email = email;
-    user.updatedAt = new Date();
-    res.status(200).json({
-      message: "User updated successfully",
-      user,
-    });
+      (err, result) => {
+        if (err) {
+          res.status(500).json({
+            message: "Internal Server Error",
+          });
+        } else {
+          res.status(200).json({
+            message: "User updated successfully",
+            result,
+          });
+        }
+      }
+    );
+    // const { id } = req.params;
+    // const { firstName, lastName, email } = req.body;
+    // const user = users.find((user) => user.id === id);
+    // if (!user) {
+    //   return res.status(404).json({ message: "User not found" });
+    // } else if (firstName === null) {
+    //   return res.status(400).json({ message: "First name is required" });
+    // } else if (lastName === null) {
+    //   return res.status(400).json({ message: "Last name is required" });
+    // } else if (email === null) {
+    //   return res.status(400).json({ message: "Email is required" });
+    // }
+
+    // user.firstName = firstName;
+    // user.lastName = lastName;
+    // user.email = email;
+    // user.updatedAt = new Date();
+    // res.status(200).json({
+    //   message: "User updated successfully",
+    //   user,
+    // });
   }
   //Delete User data user/:id
   static deleteUser(req, res) {
