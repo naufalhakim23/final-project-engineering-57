@@ -13,10 +13,50 @@ import {
     Container,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-
-
+import { useState } from 'react';
+import axios from 'axios';
 import SimpleFooter from '../components/SimpleFooter.tsx';
+import useStore from '../Store/useStore';
+import jwt_decode from 'jwt-decode';
 export default function SignIn() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [remember, setRemember] = useState(false);
+    const updateisLoggedInGlobal = useStore(state => state.updateisLoggedInGlobal);
+
+    const signIn = async () => {
+        try {
+            const response = await axios({
+                method: 'POST',
+                url: 'http://localhost:3001/api/auth/login/',
+                data: {
+                    email: email,
+                    password: password,
+                },
+            });
+            sessionStorage.setItem('token', response.data.token);
+            if (sessionStorage.getItem('token')) {
+                updateisLoggedInGlobal(true);
+                const decoded = jwt_decode(sessionStorage.getItem('token'));
+                sessionStorage.setItem('id', decoded.id);
+                sessionStorage.setItem('firstName', decoded.firstName);
+                sessionStorage.setItem('lastName', decoded.lastName);
+            }
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const setTimer = () => {
+        setTimeout(() => {
+            window.location = '/';
+        }, 2000);
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        signIn();
+        setTimer();
+    }
     return (
         <>
             <Stack maxH={'92vh'} direction={{ base: 'column', md: 'row' }}>
@@ -53,35 +93,54 @@ export default function SignIn() {
                                 </Text>
                             </Container>
                         </Center>
-                        <FormControl id="email">
-                            <FormLabel>Email</FormLabel>
-                            <Input type="email" />
-                        </FormControl>
-                        <FormControl id="password">
-                            <FormLabel>Password</FormLabel>
-                            <Input type="password" />
-                        </FormControl>
-                        <Stack spacing={5}>
-                            <Stack
-                                direction={{ base: 'column', sm: 'row' }}
-                                align={'start'}
-                                justify={'space-between'}>
-                                <Checkbox>Remember me</Checkbox>
+                        <form
+                            onSubmit={handleSubmit}
+                        >
+                            <FormControl id="email">
+                                <FormLabel>Email</FormLabel>
+                                <Input type="email"
+                                    placeholder="Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </FormControl>
+                            <FormControl id="password">
+                                <FormLabel>Password</FormLabel>
+                                <Input type="password"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+
+                                />
+                            </FormControl>
+                            <Stack spacing={5}>
+                                <Stack
+                                    direction={{ base: 'column', sm: 'row' }}
+                                    align={'start'}
+                                    justify={'space-between'}>
+                                    <Checkbox
+                                        name="remember"
+                                        label="Ingat saya"
+                                        checked={remember}
+                                        onChange={() => setRemember(!remember)}
+
+                                    >Remember me</Checkbox>
+                                </Stack>
+                                <Button
+                                    bg={'#00D563'} color={'white'} variant={'solid'}
+                                    type="submit"
+
+                                >
+                                    Sign in
+                                </Button>
+                                <Text>
+                                    Don't have an account?
+                                    <Link to='/sign-Up'>
+                                        Sign up
+                                    </Link>
+                                </Text>
                             </Stack>
-                            <Button
-                                bg={'#00D563'} color={'white'} variant={'solid'}
-                            >
-                                Sign in
-                            </Button>
-                            <Text>
-                                Don't have an account?
-                                <Link to='/sign-Up'>
-                                    Sign up
-                                </Link>
-                            </Text>
-
-
-                        </Stack>
+                        </form>
                     </Stack>
                 </Flex>
             </Stack>
