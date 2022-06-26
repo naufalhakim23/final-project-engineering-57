@@ -22,9 +22,9 @@ const Question = ({ id, question, answerFor }) => {
                 fontSize: '1rem',
                 fontWeight: '600',
                 cursor: 'pointer',
+
               }}
               onClick={() => {
-                alert('Yes');
               }}
             />
             <input
