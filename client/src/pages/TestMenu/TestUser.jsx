@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderDashboard from '../../components/DashboardComponents/HeaderDashboard.tsx';
 import Footer from '../../components/Footer.tsx';
 import { Box, Button, Flex, Heading } from '@chakra-ui/react';
-import Question from '../../components/Question.tsx';
+import Question from '../../components/Question';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 const TestUser = () => {
+    const [question, setQuestion] = useState(null);
+    const [answerFor, setAnswerFor] = useState(null);
+    const getQuestion = async () => {
+        try {
+            const response = await axios({
+                method: 'GET',
+                url: 'http://localhost:3001/api/test/questions',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                }
+            });
+            setQuestion(response.data);
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        getQuestion();
+    }
+        , []);
     return (
         <>
             <HeaderDashboard />
-
+            <pre>
+                {/* {JSON.stringify(question, null, 2)}/ */}
+            </pre>
             <Box
                 backgroundColor={'#00D56373'}
                 width={'100%'}
@@ -32,18 +57,16 @@ const TestUser = () => {
                     </Heading>
                     {/* Test Question and Answer Button for RIASEC Test buat conditional rendering*/}
                     {/* Mapping for Question from Backend */}
-                    <Question
-                        id={1}
-                        question={'Apakah anda suka mengerjakan yang berbentuk nyata seperti mobil?'}
-                    />
-                    <Question
-                        id={2}
-                        question={'Apakah anda suka puzzle?'}
-                    />
-                    <Question
-                        id={3}
-                        question={'Apakah anda senang bekerja sendiri?'}
-                    />
+                    {question && question.map((item, index) => {
+                        return (
+                            <Question
+                                id={item.id}
+                                question={item.question}
+                                answerFor={item.answerFor}
+                                key={index}
+                            />
+                        )
+                    })}
                     <Box
                         alignItems={'right'}
                         justifyContent={'right'}

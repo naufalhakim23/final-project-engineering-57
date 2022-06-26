@@ -61,17 +61,19 @@ export default function TestLandingPage() {
               spacing={{ base: 4, sm: 6 }}
               direction={{ base: 'column', sm: 'row' }}
             >
-              <Button
-                rounded={'full'}
-                size={'lg'}
-                fontWeight={'normal'}
-                px={6}
-                colorScheme={'green'}
-                bg={'green.400'}
-                _hover={{ bg: 'green.500' }}
-              >
-                <Link to={'/test/soal'}>Mulai</Link>
-              </Button>
+              <Link to={'/test/soal'}>
+                <Button
+                  rounded={'full'}
+                  size={'lg'}
+                  fontWeight={'normal'}
+                  px={6}
+                  colorScheme={'green'}
+                  bg={'green.400'}
+                  _hover={{ bg: 'green.500' }}
+                >
+                  Mulai
+                </Button>
+              </Link>
             </Stack>
           </Stack>
           <Flex
