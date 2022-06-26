@@ -1,12 +1,15 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
+// Router data
 const AuthRouter = require("./src/routers/AuthRouter");
 const UserRouter = require("./src/routers/UserRouter");
 const TestRouter = require("./src/routers/TestRouter");
 const ExplanationRouter = require("./src/routers/ExplanationRouter");
 
 //middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
