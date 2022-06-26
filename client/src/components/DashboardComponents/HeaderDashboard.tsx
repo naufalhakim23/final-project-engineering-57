@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   chakra,
   Flex,
-  Image,
   Button,
   HStack,
   VStack,
@@ -21,10 +20,21 @@ import {
 import { CloseButton } from '@chakra-ui/react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-const HeaderDashboard = ({ fullName }) => {
+const HeaderDashboard = ({}) => {
   const bg = useColorModeValue('white', 'gray.800');
   const mobileNav = useDisclosure();
-  const [isSignedIn, setIsSignedIn] = React.useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const fullName = `${sessionStorage.getItem(
+    'firstName'
+  )} ${sessionStorage.getItem('lastName')}`;
+
+  useEffect(() => {
+    if (sessionStorage.getItem('token')) {
+      setisLoggedIn(true);
+    } else {
+      setisLoggedIn(false);
+    }
+  }, []);
   return (
     <React.Fragment>
       <chakra.header
@@ -41,18 +51,16 @@ const HeaderDashboard = ({ fullName }) => {
           <Flex>
             <Link to={'/'}>
               {/* Changeit to logo */}
-              <Avatar
-                size="sm"
-                src="https://www.choc.com/wcsstore/GlobalAssets/images/logo/choc-logo-white.svg"
-              />
-              <VisuallyHidden>Choc</VisuallyHidden>
+              <Avatar size="sm" src="./assets/images/Impianmu.png" />
+
+              <VisuallyHidden>impianmu</VisuallyHidden>
             </Link>
             <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
-              Choc
+              impianmu
             </chakra.h1>
           </Flex>
           <HStack display="flex" alignItems="center" spacing={1}>
-            {isSignedIn ? (
+            {isLoggedIn ? (
               <>
                 <HStack
                   spacing={1}
@@ -63,9 +71,11 @@ const HeaderDashboard = ({ fullName }) => {
                     md: 'inline-flex',
                   }}
                 >
-                  <Button variant="ghost" fontWeight={500}>
-                    Test RIASEC
-                  </Button>
+                  <Link to="/test">
+                    <Button variant="ghost" fontWeight={500}>
+                      Test RIASEC
+                    </Button>
+                  </Link>
                   <Button variant="ghost" fontWeight={500}>
                     Universitas
                   </Button>
@@ -108,32 +118,38 @@ const HeaderDashboard = ({ fullName }) => {
                         marginRight={2}
                       />
                       <Text fontSize="sm" fontWeight="500" color="black">
-                        {fullName} Naufal Al-Hakim
+                        {fullName}
                       </Text>
                     </Box>
                   </MenuButton>
                   <MenuList>
-                    <MenuItem>
-                      <Link to={'/'}>
+                    <Link to={'/'}>
+                      <MenuItem>
                         <Text fontSize="sm" fontWeight="500" color="black">
                           Your Dashboard
                         </Text>
-                      </Link>
-                    </MenuItem>
-                    <MenuItem>
-                      <Link to={'/settings'}>
+                      </MenuItem>
+                    </Link>
+                    <Link to={'/settings'}>
+                      <MenuItem>
                         <Text fontSize="sm" fontWeight="500" color="black">
                           Account Settings
                         </Text>
-                      </Link>
-                    </MenuItem>
-                    <MenuItem>
-                      <Link to={'/logout'}>
+                      </MenuItem>
+                    </Link>
+                    <Link to={'/landing-page'}>
+                      <MenuItem
+                        onClick={() => {
+                          sessionStorage.removeItem('token');
+                          sessionStorage.removeItem('login-status');
+                          setisLoggedIn(false);
+                        }}
+                      >
                         <Text fontSize="sm" fontWeight="500" color="black">
                           Logout
                         </Text>
-                      </Link>
-                    </MenuItem>
+                      </MenuItem>
+                    </Link>
                   </MenuList>
                 </Menu>
               </>
@@ -165,7 +181,7 @@ const HeaderDashboard = ({ fullName }) => {
                     fontWeight={400}
                     bg={'none'}
                     color={'#00D563'}
-                    onClick={() => setIsSignedIn(true)}
+                    onClick={() => setisLoggedIn(true)}
                   >
                     <Text fontSize="sm" fontWeight="500">
                       Sign In
