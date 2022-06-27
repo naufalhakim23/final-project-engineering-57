@@ -8,6 +8,7 @@ import {
   Box,
   IconButton,
   VisuallyHidden,
+  Image,
   useDisclosure,
   useColorModeValue,
   Avatar,
@@ -50,14 +51,9 @@ const HeaderDashboard = () => {
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <Flex>
             <Link to={'/'}>
-              {/* Changeit to logo */}
-              <Avatar size="sm" src="./assets/images/Impianmu.png" />
-
-              <VisuallyHidden>impianmu</VisuallyHidden>
+              <Image src="./assets/images/Impianmu.png" alt="logo" width={50} />
+              <VisuallyHidden>Impianmu</VisuallyHidden>
             </Link>
-            <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
-              impianmu
-            </chakra.h1>
           </Flex>
           <HStack display="flex" alignItems="center" spacing={1}>
             {isLoggedIn ? (
