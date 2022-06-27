@@ -110,9 +110,11 @@ Project Link: [https://github.com/rg-km/final-project-engineering-57]
 
 ## Property
 
-![image](https://user-images.githubusercontent.com/100768683/175807354-27b380e1-f560-4582-9473-bb388eae2bdb.png)(https://sepatulogi.atlassian.net/browse/RIASEC57)
+![image](https://user-images.githubusercontent.com/100768683/175807354-27b380e1-f560-4582-9473-bb388eae2bdb.png)
+https://sepatulogi.atlassian.net/browse/RIASEC57
 
-![image](https://user-images.githubusercontent.com/100768683/175807568-3ad2fe11-708d-484a-b661-2f1eb187533d.png) -https://www.figma.com/files/project/58350442/Impianmu?fuid=1059051078761513130
+![image](https://user-images.githubusercontent.com/100768683/175807568-3ad2fe11-708d-484a-b661-2f1eb187533d.png)
+https://www.figma.com/file/yBorigg8RbNrXxlixxHnvP/Web-App---Front-End?node-id=0%3A1
 
 <br/>
 
