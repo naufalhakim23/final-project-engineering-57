@@ -1,9 +1,10 @@
-//Database connection
-const mysql = require("mysql");
-const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "password",
-  database: "impianmu",
+//Database connection postgresql with Heroku
+const { Pool } = require("pg");
+require("dotenv").config();
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
-module.exports = db;
+module.exports = pool;
