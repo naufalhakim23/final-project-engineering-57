@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
+const port = process.env.PORT || 3001;
 // Router data
 const AuthRouter = require("./src/routers/AuthRouter");
 const UserRouter = require("./src/routers/UserRouter");
@@ -19,6 +19,6 @@ app.use("/api/user", UserRouter);
 app.use("/api/test", TestRouter);
 app.use("/api/explanation", ExplanationRouter);
 
-app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+app.listen(port, () => {
+  console.log("Server is running on port " + port);
 });
