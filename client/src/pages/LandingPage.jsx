@@ -16,6 +16,7 @@ import LandingPageCard from '../components/LandingPageCard.tsx';
 import Footer from '../components/Footer.tsx';
 import HeaderDashboard from '../components/DashboardComponents/HeaderDashboard.tsx';
 import { Link } from 'react-router-dom';
+import LandingPageCard2 from '../components/LandingPageCard2.tsx';
 
 export default function LandingPage() {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
@@ -248,6 +249,73 @@ export default function LandingPage() {
           )}
         </Center>
       </Container>
+      <Container maxW={'7xl'} mb={3}>
+        <Text fontSize={'3xl'} fontWeight={600} textAlign="center" mt={5}>
+          Menurut Para Pengguna
+        </Text>
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+        >
+
+          {
+            isMobile ? (
+              <>
+                <Container>
+                  <Flex
+                    direction={'column'}
+                    justify={'center'}
+                    align={'center'}
+                    maxW={'640px'}
+                  >
+                    {/* title, description, image, author */}
+                    <LandingPageCard2
+                      title="Prediksi yang tepat untukmu"
+                      description="impianmu menyediakan prediksi yang tepat untukmu. Tanpa harus mengikuti kuliah, bisa mengikuti kuliah secara online."
+                      image="https://images.unsplash.com/photo-1644982654131-79f434ac0c6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                      author="John Lennon"
+                    />
+                    <LandingPageCard2
+                      title="This is magical"
+                      description="impianmu help you to find the right course for you. No need to do bullshit, you can study online."
+                      image="https://images.unsplash.com/photo-1656306403547-dd26883b6fb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80"
+                      author="Jayson Hinrichsen"
+                    />
+                    <LandingPageCard2
+                      title="It's all about you"
+                      description="impianmu help you to find the right course for you. No need to do bullshit, you can study online."
+                      image="https://images.unsplash.com/photo-1656328120588-606ec5e73678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                      author="Jayson Hinrichsen"
+                    />
+                  </Flex>
+                </Container>
+              </>
+            ) : (
+              <>
+
+                <LandingPageCard2
+                  title="Prediksi yang tepat untukmu"
+                  description="impianmu menyediakan prediksi yang tepat untukmu. Tanpa harus mengikuti kuliah, bisa mengikuti kuliah secara online."
+                  image="https://images.unsplash.com/photo-1644982654131-79f434ac0c6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                  author="John Lennon"
+                />
+                <LandingPageCard2
+                  title="This is magical"
+                  description="impianmu help you to find the right course for you. No need to do bullshit, you can study online."
+                  image="https://images.unsplash.com/photo-1656306403547-dd26883b6fb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80"
+                  author="Jayson Hinrichsen"
+                />
+                <LandingPageCard2
+                  title="It's all about you"
+                  description="impianmu help you to find the right course for you. No need to do bullshit, you can study online."
+                  image="https://images.unsplash.com/photo-1656328120588-606ec5e73678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                  author="Jayson Hinrichsen"
+                />
+              </>
+            )
+          }
+        </Flex>;
+      </Container>
       <Container maxW={'7xl'} mb={10}>
         <Text>
           <Heading fontWeight={600} textAlign="center" margin={'10'}>
@@ -267,17 +335,17 @@ export default function LandingPage() {
                 <LandingPageCard
                   titleFeature={'Pencarian Minat dan Bakat Impianmu'}
                   imageFeature={
-                    'https://images.unsplash.com/photo-1655201820196-bded3e9bd271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+                    'https://images.unsplash.com/photo-1598160882026-6e61d16dc8c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
                   }
                 />
                 <LandingPageCard
-                  titleFeature={'Pencarian Beasiswa'}
+                  titleFeature={'Pencarian Beasiswa dan Universitas'}
                   imageFeature={
                     'https://images.unsplash.com/photo-1655070748916-75871ab03c87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'
                   }
                 />
                 <LandingPageCard
-                  titleFeature={'Prediksi Jurusan'}
+                  titleFeature={'Prediksi Jurusan dan Universitas'}
                   imageFeature={
                     'https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
                   }
@@ -296,17 +364,17 @@ export default function LandingPage() {
                 <LandingPageCard
                   titleFeature={'Pencarian Minat dan Bakat Impianmu'}
                   imageFeature={
-                    'https://images.unsplash.com/photo-1655201820196-bded3e9bd271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+                    'https://images.unsplash.com/photo-1598160882026-6e61d16dc8c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
                   }
                 />
                 <LandingPageCard
-                  titleFeature={'Pencarian Beasiswa'}
+                  titleFeature={'Pencarian Beasiswa dan Universitas'}
                   imageFeature={
                     'https://images.unsplash.com/photo-1655070748916-75871ab03c87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'
                   }
                 />
                 <LandingPageCard
-                  titleFeature={'Prediksi Jurusan'}
+                  titleFeature={'Prediksi Jurusan dan Universitas'}
                   imageFeature={
                     'https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
                   }
@@ -316,34 +384,6 @@ export default function LandingPage() {
           )}
         </Center>
       </Container>
-      <Container maxW={'7xl'} mb={10}>
-        <Text>
-          <Heading fontWeight={600} textAlign="center" margin={'10'}>
-            Our Features
-          </Heading>
-        </Text>
-        <Center>
-          <LandingPageCard
-            titleFeature={'Pencarian Minat dan Bakat Impianmu'}
-            imageFeature={
-              'https://images.unsplash.com/photo-1655201820196-bded3e9bd271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-            }
-          />
-          <LandingPageCard
-            titleFeature={'Pencarian Beasiswa'}
-            imageFeature={
-              'https://images.unsplash.com/photo-1655070748916-75871ab03c87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80'
-            }
-          />
-          <LandingPageCard
-            titleFeature={'Prediksi Jurusan'}
-            imageFeature={
-              'https://images.unsplash.com/photo-1654778747238-12314fb5a4aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-            }
-          />
-        </Center>
-      </Container>
-
       <Footer />
     </>
   );
