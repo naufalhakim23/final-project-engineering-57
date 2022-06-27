@@ -23,8 +23,8 @@ class AuthController {
   //Register User
   static register(req, res) {
     try {
-      const { username, password } = req.body;
-      const hash = bcrypt.hashSync(password);
+      const { password } = req.body;
+      const hash = bcrypt.hashSync(password, 10);
       const id = uuid();
       pool.query(
         //Check email if it's already registered
