@@ -1,9 +1,10 @@
 import React from 'react';
 import HeaderDashboard from '../../components/DashboardComponents/HeaderDashboard.tsx';
 import Footer from '../../components/Footer.tsx';
-import { Box, Flex, Heading, Button } from '@chakra-ui/react';
+import { Box, Flex, Heading, Button, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 const ResultTest = () => {
+
     return (
         <>
             <HeaderDashboard />
@@ -27,6 +28,72 @@ const ResultTest = () => {
                     >
                         RIASEC Test Result
                     </Heading>
+                    <Flex
+                        direction={'column'}
+                        justifyContent={'space-between'}
+                        width={'100%'}
+                        padding={'1rem'}
+                    >
+                        <Heading
+                            fontSize={'lg'}
+                            fontWeight={'600'}
+                            color={'black'}
+                            margin={5}
+                        >
+                            You are: Realistic
+
+                        </Heading>
+                        <Text
+                            fontSize={'lg'}
+                            marginLeft={5}
+                        >
+                            These people are often good at mechanical or athletic jobs
+                        </Text>
+                    </Flex>
+                    <Flex
+                        direction={'column'}
+                        justifyContent={'space-between'}
+                        width={'100%'}
+                        padding={'1rem'}
+                    >
+                        <Heading
+                            fontSize={'lg'}
+                            fontWeight={'600'}
+                            color={'black'}
+                            margin={5}
+                        >
+                            Departement YOU should study:
+                        </Heading>
+                        <Text
+                            fontSize={'lg'}
+                            marginLeft={5}
+                        >
+                            <li>
+                                Agriculture
+                            </li>
+                            <li>
+                                Health Assistant
+                            </li>
+                            <li>
+                                Computers
+                            </li>
+                            <li>
+                                Construction
+                            </li>
+                            <li>
+                                Mechanic
+                            </li>
+                            <li>
+                                Machinist
+                            </li>
+                            <li>
+                                Engineering
+                            </li>
+                            <li>
+                                Food and Hospitality
+                            </li>
+                        </Text>
+                    </Flex>
                     <Box
                         alignItems={'right'}
                         justifyContent={'right'}
