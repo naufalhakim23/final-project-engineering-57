@@ -1,7 +1,11 @@
 import React from 'react';
 import { Box, Text, Center, Flex } from '@chakra-ui/react';
 
-const Question = ({ id, question, answerFor }) => {
+const Question = ({
+  id,
+  question,
+  // answerFor
+}) => {
   return (
     <Box marginLeft={'2rem'} padding={'1rem'}>
       <Text fontSize={'2xl'} fontWeight={'600'} color={'black'} mb={'1rem'}>

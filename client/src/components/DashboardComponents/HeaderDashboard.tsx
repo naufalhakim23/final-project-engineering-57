@@ -20,7 +20,7 @@ import {
 import { CloseButton } from '@chakra-ui/react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-const HeaderDashboard = ({}) => {
+const HeaderDashboard = () => {
   const bg = useColorModeValue('white', 'gray.800');
   const mobileNav = useDisclosure();
   const [isLoggedIn, setisLoggedIn] = useState(false);

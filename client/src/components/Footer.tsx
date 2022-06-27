@@ -1,15 +1,12 @@
-import { ReactNode } from 'react';
-
 import {
   Box,
   Container,
   Spacer,
-  Link,
   SimpleGrid,
   Stack,
   Text,
-  useColorModeValue,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Logo = (props: any) => {
   return (
@@ -30,15 +27,6 @@ const Logo = (props: any) => {
     </svg>
   );
 };
-
-const ListHeader = ({ children }: { children: ReactNode }) => {
-  return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
-      {children}
-    </Text>
-  );
-};
-
 export default function Footer() {
   return (
     <Box bg="#301E4E" color={'white'}>
@@ -55,15 +43,14 @@ export default function Footer() {
             <Text fontSize={'sm'}>© 2022 Impianmu. All rights reserved</Text>
           </Stack>
           <Spacer />
-          {/* <Stack align={'flex-end'}>
-            <ListHeader>Product</ListHeader>
-            <Link href={'#'}>Overview</Link>
-            <Link href={'#'}>Features</Link>
-            <Link href={'#'}>Tutorials</Link>
-            <Link href={'#'}>Pricing</Link>
-            <Link href={'#'}>Releases</Link>
-          </Stack> */}
         </SimpleGrid>
+        <Container as={Stack} maxW={'6xl'} py={4} alignItems={'flex-end'}>
+          <Stack direction={'row'} spacing={6}>
+            <Link to={'/'}>Home</Link>
+            <Link to={'/about-us'}>About Us</Link>
+            <Link to={'/meet-the-team'}>Meet The Team</Link>
+          </Stack>
+        </Container>
       </Container>
     </Box>
   );
