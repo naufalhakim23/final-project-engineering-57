@@ -5,14 +5,15 @@ import { Box, Button, Flex, Heading } from '@chakra-ui/react';
 import Question from '../../components/Question';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../../api/config';
 const TestUser = () => {
     const [question, setQuestion] = useState(null);
-    const [answerFor, setAnswerFor] = useState(null);
+    // const [answerFor, setAnswerFor] = useState(null); still not sure about this
     const getQuestion = async () => {
         try {
             const response = await axios({
                 method: 'GET',
-                url: 'http://localhost:3001/api/test/questions',
+                url: `${API_URL}/test/questions`,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${sessionStorage.getItem('token')}`

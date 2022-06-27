@@ -18,6 +18,7 @@ import axios from 'axios';
 import SimpleFooter from '../components/SimpleFooter.tsx';
 import useStore from '../Store/useStore';
 import jwt_decode from 'jwt-decode';
+import { API_URL } from '../api/config';
 export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -28,7 +29,7 @@ export default function SignIn() {
         try {
             const response = await axios({
                 method: 'POST',
-                url: 'http://localhost:3001/api/auth/login/',
+                url: `${API_URL}/auth/login/`,
                 data: {
                     email: email,
                     password: password,

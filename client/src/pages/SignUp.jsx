@@ -12,15 +12,14 @@ import {
     Container,
     Modal,
     ModalOverlay,
-    ModalCloseButton,
     ModalContent,
     ModalHeader,
     ModalBody,
-    ModalFooter,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../api/config';
 
 
 import SimpleFooter from '../components/SimpleFooter.tsx';
@@ -36,7 +35,7 @@ export default function SignUp() {
         try {
             const response = await axios({
                 method: 'POST',
-                url: 'http://localhost:3001/api/auth/register/',
+                url: `${API_URL}/auth/register/`,
                 data: {
                     email: email,
                     password: password,
