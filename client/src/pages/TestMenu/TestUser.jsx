@@ -24,6 +24,25 @@ const TestUser = () => {
             console.log(error);
         }
     }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios({
+                method: 'POST',
+                url: 'http://localhost:3001/api/test/answer',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+                },
+                data: {
+                    // answer: answerFor
+                }
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     useEffect(() => {
         getQuestion();
     }
@@ -57,39 +76,42 @@ const TestUser = () => {
                     </Heading>
                     {/* Test Question and Answer Button for RIASEC Test buat conditional rendering*/}
                     {/* Mapping for Question from Backend */}
-                    {question && question.map((item, index) => {
-                        return (
-                            <Question
-                                id={item.id}
-                                question={item.question}
-                                answerFor={item.answerFor}
-                                key={index}
-                            />
-                        )
-                    })}
-                    <Box
-                        alignItems={'right'}
-                        justifyContent={'right'}
-                        display={'flex'}
-                        marginTop={'1rem'}
-                        width={'100%'}
+                    <form onSubmit={handleSubmit}
                     >
-                        <Link to={'/test/result'}>
-                            <Button
-                                background={'#00D56373'}
-                                color={'#FFF'}
-                                fontSize={'1rem'}
-                                fontWeight={'600'}
-                                borderRadius={'10px'}
-                                padding={'1rem'}
-                                margin={'1rem'}
-                                _hover={{ background: '#FFF', color: '#00D56373' }}
-                                _active={{ background: '#00D56373' }}
-                            >
-                                Submit
-                            </Button>
-                        </Link>
-                    </Box>
+                        {question && question.map((item, index) => {
+                            return (
+                                <Question
+                                    id={item.id}
+                                    question={item.question}
+                                    answerFor={item.answerFor}
+                                    key={index}
+                                />
+                            )
+                        })}
+                        <Box
+                            alignItems={'right'}
+                            justifyContent={'right'}
+                            display={'flex'}
+                            marginTop={'1rem'}
+                            width={'100%'}
+                        >
+                            <Link to={'/test/result'}>
+                                <Button
+                                    background={'#00D56373'}
+                                    color={'#FFF'}
+                                    fontSize={'1rem'}
+                                    fontWeight={'600'}
+                                    borderRadius={'10px'}
+                                    padding={'1rem'}
+                                    margin={'1rem'}
+                                    _hover={{ background: '#FFF', color: '#00D56373' }}
+                                    _active={{ background: '#00D56373' }}
+                                >
+                                    Submit
+                                </Button>
+                            </Link>
+                        </Box>
+                    </form>
                 </Flex>
             </Box >
             <Footer />
