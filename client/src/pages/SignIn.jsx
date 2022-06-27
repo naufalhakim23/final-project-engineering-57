@@ -41,6 +41,9 @@ export default function SignIn() {
                 sessionStorage.setItem('id', decoded.id);
                 sessionStorage.setItem('firstName', decoded.firstName);
                 sessionStorage.setItem('lastName', decoded.lastName);
+                setTimer()
+            } else {
+                updateisLoggedInGlobal(false);
             }
             return response.data;
         } catch (error) {
@@ -55,7 +58,6 @@ export default function SignIn() {
     const handleSubmit = (e) => {
         e.preventDefault();
         signIn();
-        setTimer();
     }
     return (
         <>
