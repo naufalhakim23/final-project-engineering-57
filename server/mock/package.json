@@ -2,6 +2,10 @@
   "name": "mock-server",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "kim",
   "license": "MIT",
   "dependencies": {
@@ -15,5 +19,8 @@
     "nodemon": "^2.0.18",
     "pg": "^8.7.3",
     "uuid": "^8.3.2"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
